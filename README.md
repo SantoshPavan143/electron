@@ -11,6 +11,28 @@ using JavaScript, HTML and CSS. It is based on [Node.js](https://nodejs.org/) an
 [Chromium](https://www.chromium.org) and is used by the
 [Visual Studio Code](https://github.com/Microsoft/vscode/) and many other [apps](https://electronjs.org/apps).
 
+Electronjs Java Coding
+Electron.js is a framework for building cross‑platform desktop apps using JavaScript, HTML, and CSS, backed by Node.js and Chromium. �� What you’re asking (Electron.js‑style design + “coding Java”) usually means one of three things: using Electron normally (JavaScript/Node), using Java with Electron, or choosing Java instead of Electron (e.g., JavaFX). ��
+1. What “Electron.js design” typically means
+Electron apps follow a desktop‑web hybrid design:
+The main process runs Node.js and manages windows, tray, menus, and system‑level APIs. ��
+The renderer process is essentially a web page (HTML/CSS/JS) inside each window, communicating with the main process via IPC (Inter‑Process Communication). ��
+Common patterns:
+Web UI (React, Vue, etc.) in the renderer, business logic in Node modules shared between main and renderer. �
+Use app, BrowserWindow, and ipcMain/ipcRenderer from the Electron API to wire up windows and messaging. ��
+2. Combining Electron with Java
+If you want to use Java alongside Electron instead of rewriting your backend in Node.js:
+You can run a Java service (e.g., Spring Boot, plain main‑class server, or CLI) and call it from Electron via child processes or HTTP/REST. ��
+Example flow:
+Electron app (JavaScript + HTML/CSS) in the browser window.
+Launch a Java backend as a subprocess and communicate via stdin/stdout, files, or a simple HTTP API. �
+There are also experimental templates (e.g., “Electron for Java”) that embed a Chromium view inside a Java app, but they are not the standard Electron pattern. �
+3. If you prefer Java instead of Electron
+If you don’t want Electron but still want “desktop‑like” design and coding:
+JavaFX is the common choice: full‑featured UI toolkit for rich desktop apps in Java, with FXML, CSS‑like styling, and good cross‑platform support. �
+Other Java stacks: Swing (older but still used), or Vaadin if you want a web‑style UI that runs in a desktop‑like wrapper. �
+This gives you Java‑centric design and coding (MVC, Java FX binding, etc.) instead of the JavaScript/Node/Chromium stack Electron uses. ��
+
 Follow [@electronjs](https://twitter.com/electronjs) on Twitter for important
 announcements.
 
